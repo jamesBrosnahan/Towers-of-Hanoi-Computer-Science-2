@@ -62,7 +62,16 @@ MyStack<T>::MyStack(const MyStack &other){
 }
 // Destructor
 template <class T>
-MyStack<T>::~MyStack(){;}
+MyStack<T>::~MyStack(){
+
+	for(int i = 0; i < stackSize; i++){
+		delete stackArray[i];
+	}
+	delete numElements;
+	delete stackSize;
+	delete stackArray;
+
+}
 // Stack operations
 template <class T>
 void MyStack<T>::push(T obj){
