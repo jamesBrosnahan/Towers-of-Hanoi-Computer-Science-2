@@ -64,11 +64,6 @@ MyStack<T>::MyStack(const MyStack &other){
 template <class T>
 MyStack<T>::~MyStack(){
 
-	for(int i = 0; i < stackSize; i++){
-		delete stackArray[i];
-	}
-	delete numElements;
-	delete stackSize;
 	delete stackArray;
 
 }
