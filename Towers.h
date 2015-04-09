@@ -18,7 +18,6 @@ class Towers {
 			peg3 = new MyStack<int>(numDisk0);
 		begin:
 			if(numDisk0 < 0){
-				
 				peg1->push(numDisk0);
 				numDisk0--;
 				goto begin;
@@ -33,10 +32,16 @@ class Towers {
 		}
 		~Towers() {
 			// your code
-			delete peg1,peg2,peg3;
+			delete peg1;
+			delete peg2; 
+			delete peg3;
 		}  
 		void start() {
-			// your code 
+			// your code
+			peg2->push(peg1->top());
+			peg1->pop();
+			plotPegs();
+
 		}
 		
 	private:

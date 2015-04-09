@@ -55,6 +55,7 @@ MyStack<T>::MyStack(const MyStack &other){
 	stackSize = other.stackSize;
 	numElements = other.numElements;
 	T array[stackSize];
+	stackArray = array;
 	for(int i = 0; i < numElements; i++) {
 		stackArray[i] = other.stackArray[i];
 	}
@@ -64,7 +65,7 @@ MyStack<T>::MyStack(const MyStack &other){
 template <class T>
 MyStack<T>::~MyStack(){
 
-	delete stackArray;
+	//delete stackArray;
 
 }
 // Stack operations
@@ -96,6 +97,6 @@ bool MyStack<T>::isFull() const{return stackSize == numElements;}
 template <class T>
 bool MyStack<T>::isEmpty() const{return numElements == 0;}
 template <class T>
-int MyStack<T>::size() const{return stackSize;}
+int MyStack<T>::size() const{return numElements;}
 
 #endif 
