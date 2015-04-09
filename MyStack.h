@@ -65,7 +65,7 @@ MyStack<T>::MyStack(const MyStack &other){
 template <class T>
 MyStack<T>::~MyStack(){
 
-	delete stackArray;
+	delete [] stackArray;
 
 }
 // Stack operations
@@ -74,6 +74,8 @@ void MyStack<T>::push(T obj){
 
 	if(stackArray == NULL){
 		stackArray = new T[stackSize];
+		for(int i = 0;i < stackSize;i++)
+			stackArray[i] = 0;
 		stackArray[numElements] = obj;
 		numElements++;
 	}
