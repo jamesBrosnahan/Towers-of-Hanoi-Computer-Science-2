@@ -32,16 +32,15 @@ class Towers {
 		void start() {
 			// your code
 			int n = peg1->size();
-			/*begin:
-			if(n != 1){
-				
-				n--;
-
-			}*/
-
-			peg3->push(peg1->top());
+			int tmp;
+			
+			tmp = peg1->top();
+			peg3->push(tmp);
+			peg1->pop();
+			/* 
+			
 			std::cout << peg1->top() << std::endl;
-			plotPegs();
+			//plotPegs();
 			peg1->pop();
 			//plotPegs();
 			peg2->push(peg1->top());
@@ -55,7 +54,20 @@ class Towers {
 			peg3->push(peg1->top());
 			std::cout << peg1->top() << std::endl;
 			peg1->pop();
-			
+			*/
+
+			while(!peg1->isEmpty()){
+				std::cout << peg1->top() << std::endl;
+				peg1->pop();
+			}
+			while(!peg2->isEmpty()){
+				std::cout << peg2->top() << std::endl;
+				peg2->pop();
+			}
+			while(!peg3->isEmpty()){
+				std::cout << peg3->top() << std::endl;
+				peg3->pop();
+			}
 			
 
 		}
