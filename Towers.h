@@ -34,29 +34,17 @@ class Towers {
 			int n = peg1->size();
 			int tmp;
 			
+
+
+			if(n = 1){
+
 			tmp = peg1->top();
 			peg3->push(tmp);
 			peg1->pop();
-			/* 
-			
-			std::cout << peg1->top() << std::endl;
-			//plotPegs();
-			peg1->pop();
-			//plotPegs();
-			peg2->push(peg1->top());
-			std::cout << peg1->top() << std::endl;
-			peg1->pop();
-			
-			peg2->push(peg3->top());
-			std::cout << peg3->top() << std::endl;
-			peg3->pop();
-			
-			peg3->push(peg1->top());
-			std::cout << peg1->top() << std::endl;
-			peg1->pop();
-			*/
-
-			while(!peg1->isEmpty()){
+				
+			}
+			plotPegs();
+			/*while(!peg1->isEmpty()){
 				std::cout << peg1->top() << std::endl;
 				peg1->pop();
 			}
@@ -67,7 +55,8 @@ class Towers {
 			while(!peg3->isEmpty()){
 				std::cout << peg3->top() << std::endl;
 				peg3->pop();
-			}
+			}*/
+
 			
 
 		}
