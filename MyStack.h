@@ -39,8 +39,7 @@ template <class T>
 MyStack<T>::MyStack(int size){
 
 	if(size >= 0){
-		T array[size];
-		stackArray = array;
+		stackArray = new T[size];
 		stackSize = size;
 		numElements = 0;
 	}
@@ -74,7 +73,8 @@ template <class T>
 void MyStack<T>::push(T obj){
 
 	if(!isFull()){
-		stackArray[numElements++] = obj;
+		stackArray[numElements] = obj;
+		numElements++;
 	}
 	else{
 		

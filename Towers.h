@@ -2,7 +2,7 @@
 #define	TOWER_H
 
 #include "MyStack.h"
-
+#include <iostream>
 class Towers {
 	private:
 		MyStack<int> *peg1; //start
@@ -40,17 +40,22 @@ class Towers {
 			}*/
 
 			peg3->push(peg1->top());
-			peg1->pop();
+			std::cout << peg1->top() << std::endl;
 			plotPegs();
+			peg1->pop();
+			//plotPegs();
 			peg2->push(peg1->top());
+			std::cout << peg1->top() << std::endl;
 			peg1->pop();
-			plotPegs();
+			
 			peg2->push(peg3->top());
+			std::cout << peg3->top() << std::endl;
 			peg3->pop();
-			plotPegs();
+			
 			peg3->push(peg1->top());
+			std::cout << peg1->top() << std::endl;
 			peg1->pop();
-			plotPegs();
+			
 			
 
 		}
