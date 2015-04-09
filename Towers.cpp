@@ -35,7 +35,7 @@ void Towers::plotPegs() const
 					cout << " ";
 			}
 			cout <<" | ";
-		
+					
 			//peg2
 			if (numDisk-n2-i>0) {
 				for (int j=0; j<numDisk; j++)

@@ -21,44 +21,21 @@ class Towers {
 				peg1->push(numDisk0);
 			}
 
-				
 		}
+
 		~Towers() {
 			// your code
 			delete peg1;
 			delete peg2; 
 			delete peg3;
-		}  
+		} 
+
 		void start() {
 			// your code
-			int n = peg1->size();
-			int tmp;
-			
-
-
-			if(n = 1){
-
-			tmp = peg1->top();
-			peg3->push(tmp);
-			peg1->pop();
-				
-			}
-			plotPegs();
-			/*while(!peg1->isEmpty()){
-				std::cout << peg1->top() << std::endl;
+			while(!peg1->isEmpty()){
+				plotPegs();
 				peg1->pop();
 			}
-			while(!peg2->isEmpty()){
-				std::cout << peg2->top() << std::endl;
-				peg2->pop();
-			}
-			while(!peg3->isEmpty()){
-				std::cout << peg3->top() << std::endl;
-				peg3->pop();
-			}*/
-
-			
-
 		}
 		
 	private:
