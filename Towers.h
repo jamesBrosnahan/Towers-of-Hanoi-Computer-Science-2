@@ -1,4 +1,4 @@
-#ifndef 	TOWER_H 
+#ifndef TOWER_H 
 #define	TOWER_H
 
 #include "MyStack.h"
@@ -16,16 +16,9 @@ class Towers {
 			peg1 = new MyStack<int>(numDisk0);
 			peg2 = new MyStack<int>(numDisk0);
 			peg3 = new MyStack<int>(numDisk0);
-		begin:
-			if(numDisk0 < 0){
+		
+			for(numDisk0;numDisk0 > 0;numDisk0--){
 				peg1->push(numDisk0);
-				numDisk0--;
-				goto begin;
-
-			}else if(numDisk0 < 0){
-
-			}else{
-				
 			}
 
 				
@@ -38,9 +31,27 @@ class Towers {
 		}  
 		void start() {
 			// your code
+			int n = peg1->size();
+			/*begin:
+			if(n != 1){
+				
+				n--;
+
+			}*/
+
+			peg3->push(peg1->top());
+			peg1->pop();
+			plotPegs();
 			peg2->push(peg1->top());
 			peg1->pop();
 			plotPegs();
+			peg2->push(peg3->top());
+			peg3->pop();
+			plotPegs();
+			peg3->push(peg1->top());
+			peg1->pop();
+			plotPegs();
+			
 
 		}
 		
