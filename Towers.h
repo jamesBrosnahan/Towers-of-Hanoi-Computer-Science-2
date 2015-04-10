@@ -3,13 +3,15 @@
 
 #include "MyStack.h"
 #include <iostream>
+
+
+		
 class Towers {
 	private:
 		MyStack<int> *peg1; //start
 		MyStack<int> *peg2; //tmp
 		MyStack<int> *peg3; //destination
 		// your code
-		
 	public:
 		Towers(int numDisk0) {
 			// your code
@@ -25,16 +27,28 @@ class Towers {
 
 		~Towers() {
 			// your code
-			delete peg1;
-			delete peg2; 
-			delete peg3;
+			//delete peg1;
+			//delete peg2; 
+			//delete peg3;
 		} 
 
 		void start() {
 			// your code
-			while(!peg1->isEmpty()){
-				plotPegs();
-				peg1->pop();
+			MoveTower(peg1->size(),peg1,peg2,peg3);
+			plotPegs();
+		}
+		void MoveTower(int disk, MyStack<int> source_, MyStack<int> destination_, MyStack<int> spare_){
+			MyStack<int> source = source;
+			MyStack<int> destination = destination_;
+			MyStack<int> spare = spare_;
+			if((source.size()) == 1){
+   			 destination.push(source.top());
+			 source.pop();
+			}else{
+   			 MoveTower((source.size()) - 1, source, spare, destination);
+    			 destination.push(source.top());
+			 source.pop();
+  			 MoveTower((source.size()) - 1, spare, destination, source);
 			}
 		}
 		

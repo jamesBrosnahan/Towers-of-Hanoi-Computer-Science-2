@@ -65,7 +65,7 @@ MyStack<T>::MyStack(const MyStack &other){
 template <class T>
 MyStack<T>::~MyStack(){
 
-	delete [] stackArray;
+	//delete [] stackArray;
 
 }
 // Stack operations
