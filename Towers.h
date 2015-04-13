@@ -34,7 +34,8 @@ class Towers {
 
 		void start() {
 			// your code
-			MoveTower(peg1->size(),peg1,peg2,peg3);
+			int disks = peg1->size();
+			MoveTower(disks,peg1,peg2,peg3);
 			plotPegs();
 		}
 		void MoveTower(int disk, MyStack<int> source_, MyStack<int> destination_, MyStack<int> spare_){
@@ -42,13 +43,13 @@ class Towers {
 			MyStack<int> destination = destination_;
 			MyStack<int> spare = spare_;
 			if((source.size()) == 1){
-   			 destination.push(source.top());
-			 source.pop();
+	   			 destination.push(source.top());
+				 source.pop();
 			}else{
-   			 MoveTower((source.size()) - 1, source, spare, destination);
-    			 destination.push(source.top());
-			 source.pop();
-  			 MoveTower((source.size()) - 1, spare, destination, source);
+   				 MoveTower((source.size()) - 1, source, spare, destination);
+    				 destination.push(source.top());
+				 source.pop();
+  				 MoveTower((source.size()) - 1, spare, destination, source);
 			}
 		}
 		
