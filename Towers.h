@@ -34,11 +34,12 @@ class Towers {
 
 		void start() {
 			// your code
-			int disks = peg1->size();
+			unsigned int disks = peg1->size();
 			MoveTower(disks,peg1,peg2,peg3);
 			plotPegs();
 		}
-		void MoveTower(int disk, MyStack<int> source_, MyStack<int> destination_, MyStack<int> spare_){
+
+		void MoveTower(unsigned int disk, MyStack<int> source_, MyStack<int> destination_, MyStack<int> spare_){
 			MyStack<int> source = source;
 			MyStack<int> destination = destination_;
 			MyStack<int> spare = spare_;
