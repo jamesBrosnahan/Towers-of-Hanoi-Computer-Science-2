@@ -8,9 +8,9 @@
 		
 class Towers {
 	private:
-		MyStack<int> *peg1; //start
-		MyStack<int> *peg2; //tmp
-		MyStack<int> *peg3; //destination
+		MyStack<int>* peg1; //start
+		MyStack<int>* peg2; //tmp
+		MyStack<int>* peg3; //destination
 		// your code
 	public:
 		Towers(int numDisk0) {
@@ -39,11 +39,11 @@ class Towers {
 			plotPegs();
 		}
 
-		void MoveTower(unsigned int disk, const MyStack<int>& source_, const MyStack<int>& destination_, const MyStack<int>& spare_){
-			MyStack<int> source = source;
-			MyStack<int> destination = destination_;
-			MyStack<int> spare = spare_;
-			if((source.size()) == 1){
+		void MoveTower(unsigned int disk,MyStack<int> source,MyStack<int> destination,MyStack<int> spare){
+			//MyStack<int> source = source_;
+			//MyStack<int> destination = destination_;
+			//MyStack<int> spare = spare_;
+			if((disk) == 1){
 	   			 destination.push(source.top());
 				 source.pop();
 			}else{

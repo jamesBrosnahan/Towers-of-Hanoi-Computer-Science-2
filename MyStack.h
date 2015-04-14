@@ -56,8 +56,7 @@ MyStack<T>::MyStack(const MyStack &other){
 
 	stackSize = other.stackSize;
 	numElements = other.numElements;
-	T array[stackSize];
-	stackArray = array;
+	T *stackArray = new T[stackSize];
 	for(int i = 0; i < numElements; i++) {
 		stackArray[i] = other.stackArray[i];
 	}
@@ -67,9 +66,7 @@ MyStack<T>::MyStack(const MyStack &other){
 // Destructor
 template <class T>
 MyStack<T>::~MyStack(){
-
-	//delete [] stackArray;
-
+	delete [] stackArray;
 }
 
 // Stack operations
