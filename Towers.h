@@ -46,6 +46,8 @@ class Towers {
 			if((source.size()) == 1){
 	   			 destination.push(source.top());
 				 source.pop();
+			}else if((source.size()) == 0){
+
 			}else{
    				 MoveTower((source.size()) - 1, source, spare, destination);
     				 destination.push(source.top());
