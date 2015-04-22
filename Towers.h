@@ -35,8 +35,8 @@ class Towers {
 		void start() {
 			// your code
 			unsigned int disks = peg1->size();
-			MoveTower(disks,*peg1,*peg2,*peg3);
-			plotPegs();
+			moveDisks(disks,*peg1,*peg2,*peg3);
+			//plotPegs();
 		}
 
 		void MoveTower(unsigned int disk,MyStack<int> source,MyStack<int> destination,MyStack<int> spare){
@@ -54,6 +54,20 @@ class Towers {
 				 source.pop();
   				 MoveTower((source.size()) - 1, spare, destination, source);
 			}
+		}
+
+		void moveDisks(int num, MyStack<int> source,MyStack<int> spare,MyStack<int> destination){
+
+			if( num > 0){
+				moveDisks(num - 1, source, spare, destination);
+				destination.push(source.top());
+				source.pop();
+				plotPegs();
+				moveDisks(num - 1, spare, destination, source);
+			}
+
+
+
 		}
 		
 	private:

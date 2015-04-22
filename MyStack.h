@@ -9,8 +9,8 @@ class MyStack
 {
 private:
    T *stackArray;  // Pointer to the stack array
-   unsigned int stackSize;    // The max stack size
-   unsigned int numElements;         // Indicates the number of objects on the stack
+   int stackSize;    // The max stack size
+   int numElements;         // Indicates the number of objects on the stack
 
 public:
 //// You have to define all the member functions!!!
@@ -40,26 +40,30 @@ public:
 template <class T>
 MyStack<T>::MyStack(int size){
 
-	if(size >= 0){
-		stackArray = NULL;
-		stackSize = size;
-		numElements = 0;
-	}
-	else{
-		
-	}
+	stackArray = new T[size];
+	stackSize = size;
+	numElements = 0;
+
 
 }
 // Copy constructor
 template <class T>
 MyStack<T>::MyStack(const MyStack &other){
 
+	if(other.stackSize > 0){
+		stackArray = new T[other.stackSize];
+	}else{
+		stackArray = NULL;
+	}
+
 	stackSize = other.stackSize;
-	numElements = other.numElements;
-	T *stackArray = new T[stackSize];
-	for(int i = 0; i < numElements; i++) {
+
+	for(int i = 0; i < stackSize; i++){
 		stackArray[i] = other.stackArray[i];
 	}
+
+	numElements = other.numElements;
+	
 
 }
 
@@ -72,36 +76,25 @@ MyStack<T>::~MyStack(){
 // Stack operations
 template <class T>
 void MyStack<T>::push(T obj){
-
-	if(stackArray == NULL){
-		stackArray = new T[stackSize];
-		for(int i = 0;i < stackSize;i++)
-			stackArray[i] = 0;
+	if(!isFull()){
 		stackArray[numElements] = obj;
 		numElements++;
 	}
-	else if(!isFull()){
-		stackArray[numElements] = obj;
-		numElements++;
-	}else{
-
-	}
-
-
 }
 
 template <class T>
 void MyStack<T>::pop(){
-	if(!isEmpty() && stackArray != NULL){
+	if(!isEmpty()){
 		numElements--;
-	}
-	else{
-		
 	}
 }
 
 template <class T>
-T MyStack<T>::top() {return stackArray[numElements - 1];}
+T MyStack<T>::top() {
+
+	if(!isEmpty()) return stackArray[numElements - 1];
+
+}
 
 template <class T>
 bool MyStack<T>::isFull() const{return (stackSize == numElements);}
